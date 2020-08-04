@@ -85,13 +85,14 @@ server.get("/", (req, res) => {
         var view = new MapView({
           container: "viewDiv",
           map: map,
-          center: [19.5,4.78],
+          center: [17.5,3.4],
           zoom: 3
         });
 
         // Cities feature layer
         var citiesLayer = new FeatureLayer({
-        url:"https://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/World_Cities/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json"
+        url:"https://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/World_Cities/FeatureServer/0/",
+        definitionExpression: "POP > 65000 AND POP < 8500",
         });
 
         map.add(citiesLayer,0);
