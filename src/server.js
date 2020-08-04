@@ -74,8 +74,9 @@ server.get("/", (req, res) => {
       <script>
       require([
         "esri/Map",
-        "esri/views/MapView"
-      ], function(Map, MapView) {
+        "esri/views/MapView",
+        "esri/layers/FeatureLayer"
+      ], function(Map, MapView, FeatureLayer) {
 
         var map = new Map({
           basemap: "topo-vector"
@@ -87,6 +88,13 @@ server.get("/", (req, res) => {
           center: [3.4,16.7],
           zoom: 3
         });
+
+        // Trails feature layer (lines)
+        var citiesLayer = new FeatureLayer({
+        url:"https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Trails/FeatureServer/0"
+        });
+
+        map.add(citiesLayer,0);
       });
       </script>
     </head>
