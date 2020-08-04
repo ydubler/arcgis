@@ -91,7 +91,7 @@ server.get("/", (req, res) => {
 
         // Cities feature layer
         var citiesLayer = new FeatureLayer({
-        url:"https://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/World_Cities/FeatureServer/0/query?where=1%3D1&outFields=POP,CITY_NAME&geometry=%7B%22rings%22%3A%5B%5B%5B-29.28%2C16.38%5D%2C%5B-18.52%2C35.10%5D%2C%5B-5.6%2C35.94%5D%2C%5B-5.09%2C35.98%5D%2C%5B10.79%2C37.9%5D%2C%5B33.99%2C31.52%5D%2C%5B34.82%2C29.31%5D%2C%5B34.54%2C27.39%5D%2C%5B43.55%2C12.40%5D%2C%5B55.01%2C13.21%5D%2C%5B65.2817%2C-37.23%5D%2C%5B6.81%2C-39.58%5D%5D%5D%2C%20%20%20%22spatialReference%22%20%3A%20%7B%22wkid%22%20%3A%204326%7D%7D&geometryType=esriGeometryPolygon&inSR=4326&spatialRel=esriSpatialRelContains&outSR=4326&f=json"
+        url:"https://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/World_Cities/FeatureServer/0/query?where=POP%3E65000+AND+POP%3C85000&outFields=POP,CITY_NAME&geometry=%7B%22rings%22%3A%5B%5B%5B-29.28%2C16.38%5D%2C%5B-18.52%2C35.10%5D%2C%5B-5.6%2C35.94%5D%2C%5B-5.09%2C35.98%5D%2C%5B10.79%2C37.9%5D%2C%5B33.99%2C31.52%5D%2C%5B34.82%2C29.31%5D%2C%5B34.54%2C27.39%5D%2C%5B43.55%2C12.40%5D%2C%5B55.01%2C13.21%5D%2C%5B65.2817%2C-37.23%5D%2C%5B6.81%2C-39.58%5D%5D%5D%2C%20%20%20%22spatialReference%22%20%3A%20%7B%22wkid%22%20%3A%204326%7D%7D&geometryType=esriGeometryPolygon&inSR=4326&spatialRel=esriSpatialRelContains&outSR=4326&f=json"
         });
 
         map.add(citiesLayer);
