@@ -25,6 +25,7 @@ function App() {
   return (
     <>
       <h1>ArcGIS API for Javascript</h1>
+      <div id="viewDiv"></div>
       {/* <img src="/public/images/coffee1.jpg"></img> */}
     </>
   );

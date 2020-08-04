@@ -58,9 +58,35 @@ server.get("/", (req, res) => {
     <head>
       <title>ArcGIS API for Javascript</title>
       <meta name="charset" content="utf-8" />
-      <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, minimum-scale=1, maximum-scale=1.1">
+      <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
       <meta name="author" content="Yuri Dubler" />
       <meta name="description" content="ArcGIS API" />
+      <style>
+      html, body, #viewDiv {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+      }
+      </style>
+      <link rel="stylesheet" href="https://js.arcgis.com/4.16/esri/css/main.css">
+      <script src="https://js.arcgis.com/4.16/"></script>
+      <script>
+      require([
+        "esri/Map",
+        "esri/views/MapView"
+      ], function(Map, MapView) {
+        var map = new Map({
+          basemap: "topo-vector"
+        });
+        var view = new MapView({
+          container: "viewDiv",
+          map: map,
+          center: [-118.71511,34.09042],
+          zoom: 11
+        });
+      });
+      </script>
     </head>
     <body style="margin:0px;font-family:Helvetica Neue" id="body">
       <div id="mountnode">${HTML}</div>
