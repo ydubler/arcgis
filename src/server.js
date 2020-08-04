@@ -75,8 +75,9 @@ server.get("/", (req, res) => {
       require([
         "esri/Map",
         "esri/views/MapView",
-        "esri/layers/FeatureLayer"
-      ], function(Map, MapView, FeatureLayer) {
+        "esri/layers/FeatureLayer",
+        "esri/geometry/Polygon"
+      ], function(Map, MapView, FeatureLayer, Polygon) {
 
         var map = new Map({
           basemap: "topo-vector"
@@ -89,23 +90,26 @@ server.get("/", (req, res) => {
           zoom: 3
         });
 
+        //2D polygon rings
+        const rings = [[[-29.28,16.38],[-18.52,35.10],[-5.6,35.94],[-5.09,35.98],[10.79,37.9],[33.99,31.52],[34.82,29.31],[34.54,27.39],[43.55,12.40],[55.01,13.21],[65.2817,-37.23],[6.81,-39.58]]];
+
+        const polygon = new Polygon({
+          hasZ: false,
+          hasM: false,
+          rings: rings,
+          spatialReference: { wkid: 4326 }
+        });
+
         // Cities feature layer
         var citiesLayer = new FeatureLayer({
         url:"https://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/World_Cities/FeatureServer/0/",
         definitionExpression: "POP > 65000 AND POP < 85000",
-        source:  [
-          {
-            geometry: {
-                      type: "polygon",
-                      rings: [[[-29.28,16.38],[-18.52,35.10],[-5.6,35.94],[-5.09,35.98],[10.79,37.9],[33.99,31.52],[34.82,29.31],[34.54,27.39],[43.55,12.40],[55.01,13.21],[65.2817,-37.23],[6.81,-39.58],[-29.28,16.38]]]
-                      }
-          }
-        ],
+        source: polygon,
         outFields: ["CITY_NAME", "POP"], // Return all fields so it can be queried client-side
         popupTemplate: {
           // Enable a popup
           title: "{CITY_NAME}", // Show attribute value
-          content: "Population: {POP}" // Display in pop-up
+          content: "City has a population of {POP}." // Display in pop-up
         }
         });
 
