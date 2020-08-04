@@ -91,7 +91,7 @@ server.get("/", (req, res) => {
 
         // Cities feature layer
         var citiesLayer = new FeatureLayer({
-        url:"https://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/World_Cities/FeatureServer/0/",
+        url:"https://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/World_Cities/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json",
         definitionExpression: "POP > 65000 AND POP < 8500",
         });
 
