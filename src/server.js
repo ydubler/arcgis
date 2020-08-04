@@ -92,6 +92,7 @@ server.get("/", (req, res) => {
         // Cities feature layer
         var citiesLayer = new FeatureLayer({
         url:"https://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/World_Cities/FeatureServer/0/",
+        definitionExpression: "POP > 65000 AND POP < 85000",
         outFields: ["CITY_NAME", "POP"], // Return all fields so it can be queried client-side
         popupTemplate: {
           // Enable a popup
@@ -102,25 +103,6 @@ server.get("/", (req, res) => {
 
         map.add(citiesLayer);
 
-        var sqlExpressions = [
-          "POP > 65000 AND POP < 85000",
-        ];
-        
-        var selectFilter = document.createElement("select");
-        selectFilter.setAttribute("class", "esri-widget esri-select");
-        selectFilter.setAttribute(
-          "style",
-          "width: 275px; font-family: Avenir Next W00; font-size: 1em;"
-        );
-        
-        sqlExpressions.forEach(function (sql) {
-          var option = document.createElement("option");
-          option.value = sql;
-          option.innerHTML = sql;
-          selectFilter.appendChild(option);
-        });
-        
-        view.ui.add(selectFilter, "top-right");
       });
       </script>
     </head>
