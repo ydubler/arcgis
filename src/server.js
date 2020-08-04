@@ -89,9 +89,9 @@ server.get("/", (req, res) => {
           zoom: 3
         });
 
-        // Trails feature layer (lines)
+        // Cities feature layer
         var citiesLayer = new FeatureLayer({
-        url:"https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Trails/FeatureServer/0"
+        url:"https://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/World_Cities/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json"
         });
 
         map.add(citiesLayer,0);
