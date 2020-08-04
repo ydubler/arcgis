@@ -1,0 +1,22 @@
+.portfolio {
+  display: block;
+  width: 100%;
+  height: auto;
+  text-align: center;
+  background: linear-gradient(orangered, rgb(255, 148, 49));
+  background-color: orangered;
+}
+
+.portfolio-name {
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 40px;
+  color: white;
+}
+
+.portfolio-text {
+  display: inline-block;
+  font-family: "Galada", cursive;
+  font-size: 60px;
+  color: black;
+}

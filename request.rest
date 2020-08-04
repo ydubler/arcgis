@@ -1,0 +1,42 @@
+### GET LIST OF USERS
+GET http://localhost:3000/users/getusers
+
+### ADD A USER
+POST http://localhost:3000/users/adduser
+Content-Type: application/json
+
+{
+    "name":"SupremeLeader",
+    "password":"correctPassword"
+}
+
+### TRY TO LOG IN WITH CORRECT PASSWORD
+POST http://localhost:3000/users/verifycredentials
+Content-Type: application/json
+
+{
+    "name":"SupremeLeader",
+    "password":"correctPassword"
+}
+
+### TRY TO LOG IN WITH INCORRECT PASSWORD
+POST http://localhost:3000/users/verifycredentials
+Content-Type: application/json
+
+{
+    "name":"SupremeLeader",
+    "password":"incorrectPassword"
+}
+
+### REQUEST SHIRTS
+GET http://localhost:3000/database/inventory/shirts
+Content-Type: application/json
+
+{
+    "name":"SupremeLeader",
+    "password":"incorrectPassword"
+}
+
+### REQUEST SHIRTS
+GET https://localhost:3000/getSession
+Content-Type: application/json
