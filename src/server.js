@@ -76,14 +76,16 @@ server.get("/", (req, res) => {
         "esri/Map",
         "esri/views/MapView"
       ], function(Map, MapView) {
+
         var map = new Map({
           basemap: "topo-vector"
         });
+
         var view = new MapView({
           container: "viewDiv",
           map: map,
-          center: [-118.71511,34.09042],
-          zoom: 11
+          center: [8.78,34.5],
+          zoom: 4
         });
       });
       </script>
