@@ -24,12 +24,6 @@ ReactDOM.hydrate(
       <Route exact path="/">
         <App />
       </Route>
-      <Route exact path="/front-end-components/sidebar">
-        <SidebarView />
-      </Route>
-      <Route exact path="/front-end-components/navbar">
-        <NavbarView />
-      </Route>
     </BrowserRouter>
   </>,
   document.getElementById("mountnode")

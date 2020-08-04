@@ -1,2 +1,3 @@
-# portfolio
-Come browse my Portfolio which includes examples of my wide range of skills.
+# ArcGIS API for Javascript
+
+Check out my implementation of the ArcGIS API for Javascript!

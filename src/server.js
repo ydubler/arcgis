@@ -59,98 +59,11 @@ server.get("/", (req, res) => {
   res.send(`
   <html>
     <head>
-      <title>Yuri Dubler's Portfolio</title>
+      <title>ArcGIS API for Javascript</title>
       <meta name="charset" content="utf-8" />
       <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, minimum-scale=1, maximum-scale=1.1">
       <meta name="author" content="Yuri Dubler" />
-      <meta name="description" content="Yuri Dubler's Portfolio" />
-      <link href="https://fonts.googleapis.com/css2?family=Fascinate+Inline&family=Lobster+Two&family=Open+Sans&display=swap" rel="stylesheet">
-      <link href="https://fonts.googleapis.com/css2?family=Fondamento&display=swap" rel="stylesheet">
-      <link href="https://fonts.googleapis.com/css2?family=Galada&family=Montserrat&display=swap" rel="stylesheet">
-    </head>
-    <body style="margin:0px;font-family:Helvetica Neue" id="body">
-      <div id="mountnode">${HTML}</div>
-      <script src="../dist/main.js"></script>
-    </body>
-  </html>
-  `);
-});
-
-server.get("/front-end-components/sidebar", (req, res) => {
-  console.log("get request to /");
-
-  const HTML = ReactDOMServer.renderToString(
-    <>
-      <SidebarView />
-    </>
-  );
-
-  res.send(`
-  <html>
-  <head>
-  <title>Yuri Dubler's Portfolio</title>
-  <meta name="charset" content="utf-8" />
-  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, minimum-scale=1, maximum-scale=1.1">
-  
-  <meta name="author" content="Yuri Dubler" />
-  <meta name="description" content="Yuri Dubler's Portfolio" />
-  <link href="https://fonts.googleapis.com/css2?family=Fascinate+Inline&family=Lobster+Two&family=Open+Sans&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Fondamento&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Galada&family=Montserrat&display=swap" rel="stylesheet">
-  </head>
-  <body style="margin:0px;font-family:Helvetica Neue" id="body">
-  <div id="mountnode">${HTML}</div>
-  <script src="../dist/main.js"></script>
-  </body>
-  </html>
-  `);
-});
-
-// GET REQUEST
-server.get("/lol", (req, res) => {
-  // log the activity to the server console
-  console.log('server.get("/") [html request]');
-
-  // Incorporate Aphrodite's StyleSheetServer.renderStatic() function into the standard ReactDomServer function
-  const { html, css } = StyleSheetServer.renderStatic(() => {
-    // return ReactDOMServer.renderToString(<NavBar />);
-    return ReactDOMServer.renderToString(<></>);
-  });
-
-  // Send the response, injecting the css content into the head and html into the body
-  res.send(`
-		<html>
-			<head>
-				<title>SSR React App</title>
-            	<style data-aphrodite>${css.content}</style>
-        	</head>
-			<body>
-				<div id="mountnode">${html}</div>
-				<script src="/main.js"></script>
-			</body>
-		</html>
-	`);
-});
-
-server.get("/front-end-components/navbar", (req, res) => {
-  console.log("get request to /");
-
-  const { HTML, CSS } = StyleSheetServer.renderStatic(() => {
-    return ReactDOMServer.renderToString(<NavbarView />);
-  });
-
-  res.send(`
-  <html>
-    <head>
-      <title>Yuri Dubler's Portfolio</title>
-      <meta name="charset" content="utf-8" />
-      <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, minimum-scale=1, maximum-scale=1.1">
-      <meta name="author" content="Yuri Dubler" />
-      <meta name="description" content="Yuri Dubler's Portfolio" />
-      <style data-aphrodite>${CSS}</style>
-      <link href="https://fonts.googleapis.com/css2?family=Fascinate+Inline&family=Lobster+Two&family=Open+Sans&display=swap" rel="stylesheet">
-      <link href="https://fonts.googleapis.com/css2?family=Fondamento&display=swap" rel="stylesheet">
-      <link href="https://fonts.googleapis.com/css2?family=Galada&family=Montserrat&display=swap" rel="stylesheet">
+      <meta name="description" content="ArcGIS API" />
     </head>
     <body style="margin:0px;font-family:Helvetica Neue" id="body">
       <div id="mountnode">${HTML}</div>

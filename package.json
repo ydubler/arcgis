@@ -1,12 +1,12 @@
 {
-  "name": "portfolio",
+  "name": "arcgis-api-javascript",
   "version": "1.0.0",
   "description": "Node/React/Express/PostgreSQL",
   "main": "index.js",
   "scripts": {
     "build": "babel src --out-dir dist/ && webpack",
     "start": "node ./dist/server.js",
-    "dev-server": "ENVVAR=69 nodemon --exec babel-node src/server.js --delay 500ms --ignore dist/",
+    "dev-server": "ENVVAR=42069 nodemon --exec babel-node src/server.js --delay 500ms --ignore dist/",
     "dev-bundle": "webpack -wd",
     "build-start": "babel src --out-dir dist/  && webpack && node ./dist/server.js"
   },
