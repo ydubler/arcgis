@@ -101,6 +101,26 @@ server.get("/", (req, res) => {
         });
 
         map.add(citiesLayer);
+
+        var sqlExpressions = [
+          "POP > 65000 AND POP < 85000",
+        ];
+        
+        var selectFilter = document.createElement("select");
+        selectFilter.setAttribute("class", "esri-widget esri-select");
+        selectFilter.setAttribute(
+          "style",
+          "width: 275px; font-family: Avenir Next W00; font-size: 1em;"
+        );
+        
+        sqlExpressions.forEach(function (sql) {
+          var option = document.createElement("option");
+          option.value = sql;
+          option.innerHTML = sql;
+          selectFilter.appendChild(option);
+        });
+        
+        view.ui.add(selectFilter, "top-right");
       });
       </script>
     </head>
