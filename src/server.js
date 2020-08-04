@@ -9,9 +9,6 @@ import fs from "fs";
 
 // React Components
 import App from "./app/App";
-import SidebarView from "./app/front-end-components/SidebarView";
-import NavbarView from "./app/front-end-components/NavbarView";
-
 // Stream ??
 //import { Stream } from "stream";
 

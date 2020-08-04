@@ -11,8 +11,6 @@ import { isBrowser, isMobile } from "react-device-detect";
 
 // React Components
 import App from "./app/App";
-import SidebarView from "./app/front-end-components/SidebarView";
-import NavbarView from "./app/front-end-components/NavbarView";
 
 //document.body.style.fontFamily = "Helvetica Neue";
 //document.body.style.margin = 0;
