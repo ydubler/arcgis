@@ -91,8 +91,7 @@ server.get("/", (req, res) => {
 
         // Cities feature layer
         var citiesLayer = new FeatureLayer({
-        url:"https://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/World_Cities/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json",
-        definitionExpression: "POP > 65000 AND POP < 8500",
+        url:"https://globe.yourdatasmarter.com/arcgis/rest/services/SampleWorldCities/MapServer/0/query?where=POP+%3E+65000+AND+POP+%3C+85000&text=&objectIds=&time=&geometry=%7B%0D%0A%22rings%22%3A%5B%5B%5B-29.28%2C16.38%5D%2C%5B-18.52%2C35.10%5D%2C%5B-5.6%2C35.94%5D%2C%5B-5.09%2C35.98%5D%2C%5B10.79%2C37.9%5D%2C%5B33.99%2C31.52%5D%2C%5B34.82%2C29.31%5D%2C%5B34.54%2C27.39%5D%2C%5B43.55%2C12.40%5D%2C%5B55.01%2C13.21%5D%2C%5B65.2817%2C-37.23%5D%2C%5B6.81%2C-39.58%5D%5D%5D%0D%0A%7D&geometryType=esriGeometryPolygon&inSR=4326&spatialRel=esriSpatialRelContains&relationParam=&outFields=CITY_NAME%2C+POP&returnGeometry=false&returnTrueCurves=false&maxAllowableOffset=&geometryPrecision=&outSR=&returnIdsOnly=false&returnCountOnly=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&returnZ=false&returnM=false&gdbVersion=&returnDistinctValues=false&resultOffset=&resultRecordCount=&queryByDistance=&returnExtentOnly=false&datumTransformation=&parameterValues=&rangeValues=&f=html"
         });
 
         map.add(citiesLayer,0);
