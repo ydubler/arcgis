@@ -84,8 +84,8 @@ server.get("/", (req, res) => {
         var view = new MapView({
           container: "viewDiv",
           map: map,
-          center: [8.78,34.5],
-          zoom: 4
+          center: [3.4,16.7],
+          zoom: 3
         });
       });
       </script>
