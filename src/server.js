@@ -113,8 +113,6 @@ server.get("/", (req, res) => {
         }
         });
 
-        citiesLayer.source.add(polygon);
-
         map.add(citiesLayer);
       });
       </script>
