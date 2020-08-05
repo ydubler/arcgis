@@ -103,15 +103,17 @@ server.get("/", (req, res) => {
         // Cities feature layer
         var citiesLayer = new FeatureLayer({
         url:"https://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/World_Cities/FeatureServer/0/",
-        definitionExpression: "POP > 65000 AND POP < 85000",
-        source: polygon,
+        definitionExpression: ["POP > 65000" , "POP < 85000"],
         outFields: ["CITY_NAME", "POP"], // Return all fields so it can be queried client-side
+        geometryType: "polygon",
         popupTemplate: {
           // Enable a popup
           title: "{CITY_NAME}", // Show attribute value
           content: "City has a population of {POP}." // Display in pop-up
         }
         });
+
+        citiesLayer.source.add(polygon);
 
         map.add(citiesLayer);
       });
