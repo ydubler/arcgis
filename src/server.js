@@ -95,7 +95,7 @@ server.get("/", (req, res) => {
         definitionExpression: "POP > 65000 AND POP < 85000",
         outFields: ["CITY_NAME", "POP"], // Return all fields so it can be queried client-side
         geometryType: "polygon",
-        rings: {[[[-29.28,16.38],[-18.52,35.10],[-5.6,35.94],[-5.09,35.98],[10.79,37.9],[33.99,31.52],[34.82,29.31],[34.54,27.39],[43.55,12.40],[55.01,13.21],[65.2817,-37.23],[6.81,-39.58]]]},
+        rings: [[[-29.28,16.38],[-18.52,35.10],[-5.6,35.94],[-5.09,35.98],[10.79,37.9],[33.99,31.52],[34.82,29.31],[34.54,27.39],[43.55,12.40],[55.01,13.21],[65.2817,-37.23],[6.81,-39.58]]],
         popupTemplate: {
           // Enable a popup
           title: "{CITY_NAME}", // Show attribute value
