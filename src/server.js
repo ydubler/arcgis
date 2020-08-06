@@ -76,12 +76,9 @@ server.get("/", (req, res) => {
         "esri/Map",
         "esri/views/MapView",
         "esri/layers/FeatureLayer",
-        "esri/geometry/Polygon"
-      ], function(Map, MapView, FeatureLayer, Polygon) {
-
-
-        var polygonJson  = {"rings":[[[-29.28,16.38],[-18.52,35.10],[-5.6,35.94],[-5.09,35.98],[10.79,37.9],[33.99,31.52],[34.82,29.31],[34.54,27.39],[43.55,12.40],[55.01,13.21],[65.2817,-37.23],[6.81,-39.58]]],"spatialReference":{"wkid":4326 }};
-        var polygon = new Polygon(polygonJson);
+        "esri/views/layers/support/FeatureFilter",
+        "esri/geometry/Polygon",
+      ], function(Map, MapView, FeatureLayer, FeatureFilter, Polygon) {
 
         var map = new Map({
           basemap: "topo-vector"
@@ -98,13 +95,33 @@ server.get("/", (req, res) => {
         var citiesLayer = new FeatureLayer({
           url:"https://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/World_Cities/FeatureServer/0/",
           definitionExpression: "POP > 65000 AND POP < 85000",
-          source: polygon,
           outFields: ["CITY_NAME", "POP"], // Return all fields so it can be queried client-side
           popupTemplate: {
             // Enable a popup
             title: "{CITY_NAME}", // Show attribute value
             content: "Population: {POP}." // Display in pop-up
             }
+        });
+
+        map.add(citiesLayer);
+
+        view.whenLayerView(citiesLayer).then(function(layerView){
+          // now we have access to the layerView, an
+          // object representing the layer in the view
+          console.log(layerView);
+
+          var rings = [[[-29.28,16.38],[-18.52,35.10],[-5.6,35.94],[-5.09,35.98],[10.79,37.9],[33.99,31.52],[34.82,29.31],[34.54,27.39],[43.55,12.40],[55.01,13.21],[65.2817,-37.23],[6.81,-39.58],[-29.28,16.38]]];
+          var polygon = new Polygon({
+             hasZ: false,
+             hasM: false,
+             rings: rings,
+             spatialReference: { wkid: 4326 }
+           });
+
+          layerView.filter = new FeatureFilter({
+            geometry: polygon,
+            spatialRelationship: "contains",
+          });
         });
 
       });
