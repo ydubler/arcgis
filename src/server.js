@@ -79,7 +79,8 @@ server.get("/", (req, res) => {
         "esri/layers/FeatureLayer",
         "esri/views/layers/support/FeatureFilter",
         "esri/geometry/Polygon",
-      ], function(Map, MapView, FeatureLayer, FeatureFilter, Polygon) {
+        "esri/symbols/SimpleMarkerSymbol"
+      ], function(Map, MapView, FeatureLayer, FeatureFilter, Polygon, SimpleMarkerSymbol) {
 
         var map = new Map({
           basemap: "topo-vector"
@@ -92,6 +93,25 @@ server.get("/", (req, res) => {
           zoom: 3
         });
 
+        var citiesRenderer = {
+          type: "simple",
+          symbol: {
+            type: "simple-marker",  // autocasts as new SimpleMarkerSymbol()
+            style: "circle",
+            color: "red",
+          },
+          visualVariables: [
+            {
+              type: "size",
+              field: "POP",
+              minDataValue: 65000,
+              maxDataValue: 85000,
+              minSize: "15px",
+              maxSize: "30px"
+            }
+          ]
+        };
+
         // Cities feature layer
         var citiesLayer = new FeatureLayer({
           url:"https://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/World_Cities/FeatureServer/0/",
@@ -101,7 +121,8 @@ server.get("/", (req, res) => {
             // Enable a popup
             title: "{CITY_NAME}", // Show attribute value
             content: "Population: {POP}." // Display in pop-up
-            }
+            },
+          renderer: citiesRenderer
         });
 
         map.add(citiesLayer);
