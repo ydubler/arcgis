@@ -61,6 +61,7 @@ server.get("/", (req, res) => {
       <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
       <meta name="author" content="Yuri Dubler" />
       <meta name="description" content="ArcGIS API" />
+      <link rel="icon" href="demo_icon.gif" type="image/gif" sizes="16x16">
       <style>
       html, body, #viewDiv {
         padding: 0;
