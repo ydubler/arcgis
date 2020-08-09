@@ -63,11 +63,11 @@ server.get("/", (req, res) => {
       <meta name="description" content="ArcGIS API" />
       <link rel="icon" href="demo_icon.gif" type="image/gif" sizes="16x16">
       <style>
-      html, body, #viewDiv {
+      html, body{
         padding: 0;
         margin: 0;
-        height: 100%;
-        width: 100%;
+        width:100%;
+        height:100%;
       }
       </style>
       <link rel="stylesheet" href="https://js.arcgis.com/4.16/esri/css/main.css">
